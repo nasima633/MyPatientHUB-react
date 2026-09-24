@@ -1,82 +1,125 @@
 import "./sidebar.css";
 
-function Sidebar({ isOpen, searchText, onNavClick }) {
+
+function Sidebar({
+    isOpen,
+    searchText,
+    currentPage,
+    onNavClick,
+    onNavigate
+}) {
+
 
     const navItems = [
         {
             id: "nav-dashboard",
             label: "Dashboard",
             icon: "▣",
-            page: "dashboard",
-            active: true,
+            page: "dashboard"
         },
         {
             id: "nav-appointments",
             label: "Appointments",
             icon: "▤",
-            page: "appointments",
+            page: "appointments"
         },
         {
             id: "nav-find-doctor",
             label: "Find Doctor",
             icon: "♙",
-            page: "find-doctor",
-            href: "/find-doctor",
+            page: "find-doctor"
         },
         {
             id: "nav-find-clinic",
             label: "Find Clinic",
             icon: "🏥",
-            page: "find-clinic",
-            href: "/find-clinic",
+            page: "find-clinic"
         },
         {
             id: "nav-chat",
             label: "Chat",
             icon: "▤",
-            page: "chat",
+            page: "chat"
         },
         {
             id: "nav-marketplace",
             label: "Find MarketPlace",
             icon: "▤",
-            page: "marketplace",
+            page: "marketplace"
         },
         {
             id: "nav-pharmacy",
             label: "Find Pharmacy",
             icon: "▣",
-            page: "pharmacy",
+            page: "pharmacy"
         },
         {
             id: "nav-dependents",
             label: "My Dependents",
             icon: "▤",
-            page: "dependents",
+            page: "dependents"
         },
         {
             id: "nav-account",
             label: "My Account",
             icon: "⚒",
-            page: "account",
+            page: "account"
         },
         {
             id: "nav-settings",
             label: "Settings",
             icon: "⚙",
-            page: "settings",
-        },
+            page: "settings"
+        }
     ];
 
 
-    const filteredItems = navItems.filter((item) =>
-        item.label.toLowerCase().includes(searchText.toLowerCase())
+    const filteredItems = navItems.filter(
+        (item) =>
+            item.label
+                .toLowerCase()
+                .includes(
+                    searchText.toLowerCase()
+                )
     );
+
+
+    function handleNavigation(
+        event,
+        page
+    ) {
+
+        event.preventDefault();
+
+        if (
+            page === "dashboard" ||
+            page === "find-doctor" ||
+            page === "find-clinic"
+        ) {
+
+            onNavigate(page);
+
+        }
+
+        onNavClick();
+
+    }
+
+
+    function handleHelp() {
+
+        alert(
+            "Help feature will be added in the future."
+        );
+
+    }
 
 
     return (
         <nav
-            className={`sidebar-navigation ${isOpen ? "open" : ""}`}
+            className={`sidebar-navigation ${
+                isOpen ? "open" : ""
+            }`}
             id="sidebar-navigation"
             aria-label="Main navigation"
         >
@@ -93,6 +136,7 @@ function Sidebar({ isOpen, searchText, onNavClick }) {
                     M<span>HUB</span>
                 </div>
 
+
                 <span id="brand-name">
                     MyPatientHUB
                 </span>
@@ -104,16 +148,26 @@ function Sidebar({ isOpen, searchText, onNavClick }) {
 
                 <a
                     key={item.id}
-                    href={item.href || `#${item.page}`}
+                    href={`#${item.page}`}
                     id={item.id}
-                    className={`nav-item ${item.active ? "active" : ""}`}
+                    className={`nav-item ${
+                        currentPage === item.page
+                            ? "active"
+                            : ""
+                    }`}
                     data-page={item.page}
-                    onClick={onNavClick}
+                    onClick={(event) =>
+                        handleNavigation(
+                            event,
+                            item.page
+                        )
+                    }
                 >
 
                     <span className="nav-icon">
                         {item.icon}
                     </span>
+
 
                     <span className="nav-label">
                         {item.label}
@@ -129,9 +183,7 @@ function Sidebar({ isOpen, searchText, onNavClick }) {
                 className="help-button"
                 type="button"
                 aria-label="Help"
-                onClick={() =>
-                    alert("Help feature will be added in the future.")
-                }
+                onClick={handleHelp}
             >
                 ?
             </button>
@@ -139,5 +191,6 @@ function Sidebar({ isOpen, searchText, onNavClick }) {
         </nav>
     );
 }
+
 
 export default Sidebar;

@@ -8,42 +8,65 @@ import googleIcon from "../../assets/icons/google.png";
 
 import backgroundImage from "../../assets/images/background.png";
 
-function Login({ onLoginSuccess }) {
-    const [emailOrPhone, setEmailOrPhone] = useState("");
 
-    const [password, setPassword] = useState("");
+function Login({ onLoginSuccess }) {
+
+
+    const [emailOrPhone, setEmailOrPhone] =
+        useState("");
+
+
+    const [password, setPassword] =
+        useState("");
+
 
     function handleSubmit(event) {
+
         event.preventDefault();
+
 
         if (
             emailOrPhone === "admin@gmail.com" &&
             password === "123456"
         ) {
-            alert("Login successful!!");
+
+            alert(
+                "Login successful!!"
+            );
 
             onLoginSuccess();
+
         } else {
-            alert("Incorrect password or email!");
+
+            alert(
+                "Incorrect password or email!"
+            );
+
         }
+
     }
+
 
     return (
         <div
             className="login-page"
             style={{
-                backgroundImage: `url(${backgroundImage})`
+                backgroundImage:
+                    `url(${backgroundImage})`
             }}
         >
+
             <main>
 
                 <h1 className="login-title">
                     Welcome To MyPatientHUB!
                 </h1>
 
+
                 <p className="login-subtitle">
                     We provide smart healthcare service in your hands.
                 </p>
+
 
                 <div className="login-form">
 
@@ -57,29 +80,36 @@ function Login({ onLoginSuccess }) {
                             Sign in to MyPatientHUB
                         </p>
 
+
                         <div className="social-login">
 
                             <button
                                 type="button"
                                 className="social-btn"
                             >
+
                                 <img
                                     src={facebookIcon}
                                     alt="Sign in with Facebook"
                                 />
+
                             </button>
+
 
                             <button
                                 type="button"
                                 className="social-btn"
                             >
+
                                 <img
                                     src={googleIcon}
                                     alt="Sign in with Google"
                                 />
+
                             </button>
 
                         </div>
+
 
                         <input
                             type="text"
@@ -88,9 +118,12 @@ function Login({ onLoginSuccess }) {
                             className="email-holder"
                             value={emailOrPhone}
                             onChange={(event) =>
-                                setEmailOrPhone(event.target.value)
+                                setEmailOrPhone(
+                                    event.target.value
+                                )
                             }
                         />
+
 
                         <input
                             type="password"
@@ -99,9 +132,12 @@ function Login({ onLoginSuccess }) {
                             className="password-holder"
                             value={password}
                             onChange={(event) =>
-                                setPassword(event.target.value)
+                                setPassword(
+                                    event.target.value
+                                )
                             }
                         />
+
 
                         <button
                             type="submit"
@@ -111,12 +147,14 @@ function Login({ onLoginSuccess }) {
                             SIGN IN
                         </button>
 
+
                         <a
                             href="#"
                             className="forget-password"
                         >
                             Forgot Password?
                         </a>
+
 
                         <label className="remember-me">
 
@@ -131,9 +169,11 @@ function Login({ onLoginSuccess }) {
 
                         </label>
 
+
                         <p className="space-in-up">
                             or
                         </p>
+
 
                         <button
                             type="button"
@@ -148,6 +188,7 @@ function Login({ onLoginSuccess }) {
                 </div>
 
             </main>
+
 
             <footer className="login-footer">
 
@@ -200,6 +241,7 @@ function Login({ onLoginSuccess }) {
 
                 </ul>
 
+
                 <p className="copy-right">
                     Copyright © 2022 MyPiHUB
                 </p>
@@ -209,5 +251,6 @@ function Login({ onLoginSuccess }) {
         </div>
     );
 }
+
 
 export default Login;

@@ -1,0 +1,562 @@
+
+.find-doctor-main {
+    margin-left: 255px;
+    padding-top: 85px;
+    min-height: calc(100vh - 85px);
+}
+
+
+/* =========================
+   DOCTOR HERO
+========================= */
+
+.doctor-hero {
+    position: relative;
+    min-height: 387px;
+    margin: 35px 30px 0;
+    border-radius: 20px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: radial-gradient(
+        ellipse at center,
+        #e40078 0%,
+        #c9009a 25%,
+        #8b229d 55%,
+        #43267e 100%
+    );
+
+    color: #ffffff;
+}
+
+.doctor-hero-content {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+}
+
+.doctor-hero-content h2 {
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-size: 42px;
+    font-weight: 600;
+}
+
+.doctor-hero-content p {
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-size: 19px;
+}
+
+
+/* =========================
+   DOCTOR SEARCH
+========================= */
+
+.doctor-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.doctor-search input {
+    width: 330px;
+    height: 52px;
+    padding: 0 16px;
+
+    border: none;
+    border-radius: 10px;
+    outline: none;
+
+    background: #ffffff;
+    color: #344767;
+
+    font-size: 17px;
+    box-sizing: border-box;
+}
+
+.doctor-search input::placeholder {
+    color: #adb5bd;
+}
+
+.current-button {
+    min-width: 100px;
+    height: 52px;
+    padding: 0 18px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #344767;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.current-button:hover {
+    transform: translateY(-2px);
+}
+
+.doctor-search-button {
+    min-width: 125px;
+    height: 52px;
+    padding: 0 20px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #18bde5;
+    color: #087d9b;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.doctor-search-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(24, 189, 229, 0.25);
+}
+
+
+/* =========================
+   DOCTOR SECTION
+========================= */
+
+.doctor-section {
+    margin: 60px 30px 0;
+    padding: 35px 40px 40px;
+
+    border-radius: 20px;
+    background: #ffffff;
+}
+
+.doctor-section > h2 {
+    margin-bottom: 25px;
+
+    color: #344767;
+    font-size: 32px;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* =========================
+   SPECIAL SERVICES
+========================= */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+.service-item {
+    border-radius: 7px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.service-card {
+    min-height: 120px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+    padding: 18px;
+
+    border: 1px solid #e8e8e8;
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+    width: 78px;
+    height: 78px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.15);
+
+    font-size: 38px;
+}
+
+.primary-icon {
+    color: #ff2417;
+}
+
+.emergency-icon {
+    color: #00a8c5;
+}
+
+.imaging-icon {
+    color: #ff3b00;
+}
+
+.urgent-icon {
+    width: 78px;
+    height: 78px;
+
+    border-radius: 15px;
+
+    background: #ff493e;
+    color: #ffffff;
+
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.service-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.service-text h3 {
+    margin-bottom: 7px;
+
+    color: #344767;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.service-text p {
+    color: #67748e;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   SERVICE DROPDOWN
+========================= */
+
+.dropdown-button {
+    width: 35px;
+    height: 35px;
+
+    flex-shrink: 0;
+
+    border: none;
+    background: transparent;
+
+    color: #777;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    transition: transform 0.3s ease;
+}
+
+.service-dropdown {
+    max-height: 0;
+
+    overflow: hidden;
+
+    padding: 0 20px;
+
+    border-left: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+
+    background: #ffffff;
+
+    transition:
+        max-height 0.35s ease,
+        padding 0.35s ease;
+}
+
+.service-dropdown p {
+    color: #67748e;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.service-item.open .service-dropdown {
+    max-height: 150px;
+
+    padding-top: 15px;
+    padding-bottom: 18px;
+}
+
+.service-item.open .dropdown-button {
+    transform: rotate(180deg);
+}
+
+
+/* =========================
+   SPECIALTY SECTION
+========================= */
+
+.specialty-section {
+    margin-top: 60px;
+}
+
+.specialty-description {
+    margin-top: -10px;
+    margin-bottom: 30px;
+
+    color: #222;
+    font-size: 22px;
+
+    text-align: center;
+}
+
+.specialty-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+.specialty-item {
+    overflow: hidden;
+
+    border: 1px solid #e7e7e7;
+    border-radius: 6px;
+
+    background: #ffffff;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.specialty-button {
+    width: 100%;
+    min-height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    border: none;
+
+    background: #ffffff;
+    color: #222;
+
+    font-size: 25px;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.specialty-button:hover {
+    background: #fafafa;
+}
+
+.specialty-arrow {
+    color: #777;
+    font-size: 22px;
+
+    transition: transform 0.3s ease;
+}
+
+.specialty-item.open .specialty-arrow {
+    transform: rotate(180deg);
+}
+
+.specialty-content {
+    max-height: 0;
+
+    overflow: hidden;
+
+    padding: 0 20px;
+
+    background: #ffffff;
+
+    transition:
+        max-height 0.35s ease,
+        padding 0.35s ease;
+}
+
+.specialty-item.open .specialty-content {
+    max-height: 200px;
+
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.specialty-content p {
+    color: #67748e;
+
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+
+    .doctor-search {
+        flex-wrap: wrap;
+    }
+
+    .doctor-search input {
+        width: 300px;
+    }
+
+    .services-grid,
+    .specialty-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .find-doctor-main {
+        margin-left: 0;
+        padding-top: 75px;
+
+        width: 100%;
+
+        overflow-x: hidden;
+    }
+
+
+    .doctor-hero {
+        margin: 25px 18px 0;
+        min-height: 430px;
+    }
+
+    .doctor-hero-content h2 {
+        font-size: 36px;
+    }
+
+    .doctor-hero-content p {
+        font-size: 17px;
+    }
+
+
+    .doctor-search {
+        flex-direction: column;
+    }
+
+    .doctor-search input,
+    .doctor-search-button,
+    .current-button {
+        width: 90%;
+        max-width: 450px;
+    }
+
+
+    .doctor-section {
+        margin: 40px 18px 0;
+        padding: 30px 20px;
+    }
+
+
+    .service-text h3 {
+        font-size: 20px;
+    }
+
+    .service-text p {
+        font-size: 15px;
+    }
+
+
+    .specialty-button {
+        font-size: 20px;
+    }
+
+    .specialty-description {
+        font-size: 18px;
+    }
+
+
+    .find-doctor-main + .dashboard-footer {
+        margin-left: 0;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .doctor-hero {
+        margin: 20px 12px 0;
+        min-height: 500px;
+    }
+
+    .doctor-section {
+        margin-left: 12px;
+        margin-right: 12px;
+
+        padding: 25px 15px;
+    }
+
+    .doctor-section > h2 {
+        font-size: 27px;
+    }
+
+    .doctor-hero-content h2 {
+        font-size: 32px;
+    }
+
+    .doctor-hero-content p {
+        font-size: 16px;
+    }
+
+
+    .service-card {
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .service-icon,
+    .urgent-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+
+    .service-text h3 {
+        font-size: 18px;
+    }
+
+    .service-text p {
+        font-size: 14px;
+    }
+
+
+    .specialty-button {
+        min-height: 65px;
+        padding: 0 15px;
+
+        font-size: 18px;
+    }
+
+}
+
