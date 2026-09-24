@@ -1,0 +1,71 @@
+.dashboard-section {
+    padding: 35px 30px 20px;
+}
+
+#dashboard-welcome-txt {
+    margin-bottom: 25px;
+    color: #344767;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.cards {
+    width: calc(50% - 10px);
+    margin-bottom: 5px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #edf0f2;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+}
+
+.cards:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+}
+
+.cards img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 7px;
+    object-fit: contain;
+}
+
+@media (max-width: 900px) {
+    .dashboard-section {
+        padding: 25px 18px;
+    }
+
+    #dashboard-welcome-txt {
+        font-size: 21px;
+        margin-bottom: 20px;
+    }
+
+    .cards {
+        width: 100%;
+        margin-bottom: 0;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashboard-section {
+        padding: 22px 12px;
+    }
+
+    #dashboard-welcome-txt {
+        font-size: 19px;
+    }
+
+    .cards {
+        padding: 10px;
+    }
+}
