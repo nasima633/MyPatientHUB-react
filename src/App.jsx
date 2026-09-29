@@ -1,22 +1,14 @@
 import { useState } from "react";
-
 import Login from "./pages/Login/login";
-
-import PageLayout from "./components/pageLayout/pageLayout";
-
+import PageLayout from "./components/pageLayout/pagelayout";
 import Dashboard from "./pages/Dashboard/dashboard";
-
 import FindDoctor from "./pages/FindDoctor/finddoctor";
-
 import FindClinic from "./pages/FindClinic/findclinic";
 
 
 function App() {
-
     const [loggedIn, setLoggedIn] = useState(false);
-
     const [currentPage, setCurrentPage] = useState("dashboard");
-
 
     function handleLoginSuccess() {
         setLoggedIn(true);
@@ -52,11 +44,8 @@ function App() {
     if (!loggedIn) {
 
         return (
-            <Login
-                onLoginSuccess={handleLoginSuccess}
-            />
+            <Login onLoginSuccess={handleLoginSuccess} />
         );
-
     }
 
 

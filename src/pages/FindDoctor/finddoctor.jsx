@@ -1,22 +1,16 @@
 
 import { useState } from "react";
-
 import "./finddoctor.css";
+ 
+export default function FindDoctor() {
 
-function FindDoctor() {
-
-    // Controls which Special Service dropdown is open.
     const [openService, setOpenService] = useState(null);
-
     // Controls which Specialty dropdown is open.
     const [openSpecialty, setOpenSpecialty] = useState(null);
-
     // Stores the doctor's name or speciality entered by the user.
     const [doctorName, setDoctorName] = useState("");
-
     // Stores the location entered by the user.
     const [location, setLocation] = useState("");
-
 
     // Opens one Special Service and closes the others.
     function handleServiceClick(serviceName) {
@@ -26,9 +20,7 @@ function FindDoctor() {
         } else {
             setOpenService(serviceName);
         }
-
     }
-
 
     // Opens one Specialty and closes the others.
     function handleSpecialtyClick(specialtyName) {
@@ -38,95 +30,54 @@ function FindDoctor() {
         } else {
             setOpenSpecialty(specialtyName);
         }
-
     }
-
 
     // Handles the Current Location button.
     function handleCurrentLocation() {
-
         alert("google maps will be add in the future!! 😊");
-
     }
-
 
     // Handles the Doctor Search button.
     function handleDoctorSearch() {
 
         const trimmedDoctorName = doctorName.trim();
-
         const trimmedLocation = location.trim();
 
-
-        if (
-            trimmedDoctorName === "" &&
-            trimmedLocation === ""
-        ) {
+        if (trimmedDoctorName === "" && trimmedLocation === "") {
 
             alert(
                 "Please enter a doctor name, speciality, or location."
             );
-
             return;
         }
 
-
-        if (
-            trimmedDoctorName !== "" &&
-            trimmedLocation !== ""
-        ) {
-
-            alert(
-                "Searching for " +
-                trimmedDoctorName +
-                " near " +
-                trimmedLocation +
-                "."
-            );
-
+        if (trimmedDoctorName !== "" && trimmedLocation !== "") {
+           
+            alert("Searching for " +  trimmedDoctorName + " near " + trimmedLocation + ".");
+        
         } else if (trimmedDoctorName !== "") {
 
-            alert(
-                "Searching for " +
-                trimmedDoctorName +
-                "."
-            );
+            alert("Searching for " + trimmedDoctorName + "." );
 
         } else {
 
-            alert(
-                "Searching near " +
-                trimmedLocation +
-                "."
-            );
-
+            alert("Searching near " + trimmedLocation +".");
         }
-
     }
-
 
     return (
         <main className="find-doctor-main">
-
             {/* =========================
                 DOCTOR SEARCH HERO
             ========================== */}
 
             <section className="doctor-hero">
-
                 <div className="doctor-hero-content">
+                    <h2> Find a Doctor </h2>
 
-                    <h2>
-                        Find a Doctor
-                    </h2>
-
-                    <p>
-                        Search Doctors and schedule an appointment
-                    </p>
-
+                    <p>Search Doctors and schedule an appointment </p>
 
                     <div className="doctor-search">
-
                         <input
                             type="text"
                             placeholder="Search a doctor by name, speciality"
@@ -136,8 +87,7 @@ function FindDoctor() {
                             }
                         />
 
-
-                        <input
+                         <input
                             type="text"
                             placeholder="Zip Code or Neighborhood"
                             value={location}
@@ -152,9 +102,7 @@ function FindDoctor() {
                             id="current-button"
                             className="current-button"
                             onClick={handleCurrentLocation}
-                        >
-                            Current
-                        </button>
+                        >Current</button>
 
 
                         <button
@@ -165,58 +113,25 @@ function FindDoctor() {
                         >
                             SEARCH
                         </button>
-
-                    </div>
-
+                         </div>
                 </div>
-
             </section>
-
 
             {/* =========================
                 SPECIAL SERVICES
             ========================== */}
-
             <section className="doctor-section">
-
-                <h2>
-                    Special Services
-                </h2>
-
-
+                <h2> Special Services </h2>
                 <div className="services-grid">
-
-
                     {/* PRIMARY CARE */}
-
-                    <div
-                        className={`service-item ${
-                            openService === "primary"
-                                ? "open"
-                                : ""
-                        }`}
-                    >
-
+                    <div className={`service-item ${ openService === "primary" ? "open": ""}`}>
                         <div className="service-card">
-
-                            <div className="service-icon primary-icon">
-                                ❤
-                            </div>
-
+                            <div className="service-icon primary-icon">❤ </div>
 
                             <div className="service-text">
-
-                                <h3>
-                                    Primary Care and Internal MD
-                                </h3>
-
-                                <p>
-                                    Find doctors for general health
-                                    and internal medicine.
-                                </p>
-
-                            </div>
-
+                                <h3>Primary Care and Internal   </h3>
+                                <p>  Find doctors for general health and internal medicine.</p>
+                             </div>
 
                             <button
                                 type="button"
@@ -228,53 +143,26 @@ function FindDoctor() {
                             >
                                 ↓
                             </button>
-
                         </div>
-
 
                         <div className="service-dropdown">
-
-                            <p>
-                                Primary care doctors provide general
-                                healthcare, regular checkups, and
-                                internal medicine services.
-                            </p>
-
+                            <p> Primary care doctors provide general healthcare, regular checkups, and internal medicine services. </p>
                         </div>
-
                     </div>
-
 
                     {/* EMERGENCY CARE */}
 
                     <div
-                        className={`service-item ${
-                            openService === "emergency"
-                                ? "open"
-                                : ""
-                        }`}
-                    >
-
+                        className={`service-item ${ openService === "emergency" ? "open" : "" }`}>
                         <div className="service-card">
-
                             <div className="service-icon emergency-icon">
                                 ✚
                             </div>
 
-
                             <div className="service-text">
-
-                                <h3>
-                                    Emergency Care
-                                </h3>
-
-                                <p>
-                                    Find doctors and services for
-                                    urgent medical situations.
-                                </p>
-
+                                <h3> Emergency Care  </h3>
+                                <p> Find doctors and services for urgent medical situations.</p>
                             </div>
-
 
                             <button
                                 type="button"
@@ -286,52 +174,24 @@ function FindDoctor() {
                             >
                                 ↓
                             </button>
-
                         </div>
-
 
                         <div className="service-dropdown">
-
-                            <p>
-                                Emergency care is available for
-                                urgent and serious medical needs.
-                            </p>
-
+                            <p>Emergency care is available for urgent and serious medical needs.</p>
                         </div>
-
                     </div>
-
-
                     {/* IMAGING SERVICES */}
 
-                    <div
-                        className={`service-item ${
-                            openService === "imaging"
-                                ? "open"
-                                : ""
-                        }`}
-                    >
-
+                    <div className={`service-item ${openService === "imaging" ? "open" : "" }`}>
                         <div className="service-card">
-
                             <div className="service-icon imaging-icon">
                                 ◉
                             </div>
 
-
                             <div className="service-text">
-
-                                <h3>
-                                    Imaging Services
-                                </h3>
-
-                                <p>
-                                    Find imaging and diagnostic
-                                    services near you.
-                                </p>
-
+                                <h3>Imaging Services </h3>
+                                <p> Find imaging and diagnostic services near you.</p>
                             </div>
-
 
                             <button
                                 type="button"
@@ -343,53 +203,23 @@ function FindDoctor() {
                             >
                                 ↓
                             </button>
-
                         </div>
-
 
                         <div className="service-dropdown">
-
-                            <p>
-                                Imaging services include diagnostic
-                                procedures used to help doctors
-                                understand medical conditions.
-                            </p>
-
+                            <p> Imaging services include diagnostic procedures used to help doctors understand medical conditions.</p>
                         </div>
-
                     </div>
-
-
                     {/* URGENT CARE */}
-
-                    <div
-                        className={`service-item ${
-                            openService === "urgent"
-                                ? "open"
-                                : ""
-                        }`}
-                    >
-
+                    <div className={`service-item ${ openService === "urgent"? "open": ""}`}>
                         <div className="service-card">
-
                             <div className="service-icon urgent-icon">
                                 !
                             </div>
 
-
                             <div className="service-text">
-
-                                <h3>
-                                    Urgent Care
-                                </h3>
-
-                                <p>
-                                    Find healthcare for conditions
-                                    that need quick attention.
-                                </p>
-
+                                <h3>Urgent Care</h3>
+                                <p>Find healthcare for conditions that need quick attention.</p>
                             </div>
-
 
                             <button
                                 type="button"
@@ -404,19 +234,10 @@ function FindDoctor() {
 
                         </div>
 
-
                         <div className="service-dropdown">
-
-                            <p>
-                                Urgent care provides quick medical
-                                attention for conditions that are
-                                not life-threatening emergencies.
-                            </p>
-
+                            <p> Urgent care provides quick medical attention for conditions that are not life-threatening emergencies.</p>
                         </div>
-
                     </div>
-
                 </div>
 
 
@@ -776,5 +597,3 @@ function FindDoctor() {
         </main>
     );
 }
-
-export default FindDoctor;

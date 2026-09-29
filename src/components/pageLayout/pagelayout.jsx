@@ -1,56 +1,31 @@
 import { useState } from "react";
-
 import Header from "../header/header";
-
 import Sidebar from "../sidebar/sidebar";
-
 import Footer from "../footer/footer";
-
 import "./pageLayout.css";
 
+export default  function PageLayout({ children, currentPage, onNavigate, onLogout}) {
 
-function PageLayout({
-    children,
-    currentPage,
-    onNavigate,
-    onLogout
-}) {
-
-
-    const [sidebarOpen, setSidebarOpen] =
-        useState(false);
-
-
-    const [searchText, setSearchText] =
-        useState("");
-
+    const [sidebarOpen, setSidebarOpen] =useState(false);
+    const [searchText, setSearchText] =useState("");
 
     function handleMenuClick() {
 
-        setSidebarOpen(
-            !sidebarOpen
-        );
-
+        setSidebarOpen(!sidebarOpen);
     }
 
 
     function handleSearchChange(value) {
-
         setSearchText(value);
-
     }
 
 
     function handleNavClick() {
 
         if (window.innerWidth <= 900) {
-
-            setSidebarOpen(false);
-
+           setSidebarOpen(false);
         }
-
     }
-
 
     function getPageTitle() {
 
@@ -69,15 +44,12 @@ function PageLayout({
 
     return (
         <div className="page-layout">
-
             <Header
                 pageTitle={getPageTitle()}
                 onMenuClick={handleMenuClick}
                 searchText={searchText}
                 onSearchChange={handleSearchChange}
-                onLogout={onLogout}
-            />
-
+                onLogout={onLogout}/>
 
             <Sidebar
                 isOpen={sidebarOpen}
@@ -87,19 +59,12 @@ function PageLayout({
                 onNavigate={onNavigate}
             />
 
-
             <main className="page-content">
-
                 {children}
-
             </main>
-
-
             <Footer />
-
         </div>
-    );
+);
 }
 
 
-export default PageLayout;

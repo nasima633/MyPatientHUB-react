@@ -1,14 +1,7 @@
 import "./header.css";
 
 
-function Header({
-    pageTitle,
-    onMenuClick,
-    searchText,
-    onSearchChange,
-    onLogout
-}) {
-
+export default function Header({ pageTitle,onMenuClick,searchText, onSearchChange,onLogout}) {
 
     function handleNotifications() {
 
@@ -18,7 +11,6 @@ function Header({
 
     }
 
-
     function handleSettings() {
 
         alert(
@@ -26,7 +18,6 @@ function Header({
         );
 
     }
-
 
     function handleLogout() {
 
@@ -36,78 +27,40 @@ function Header({
 
 
         if (confirmLogOut) {
-
-            onLogout();
-
+             onLogout();
         }
-
     }
 
-
     return (
-        <header
-            className="dashboard-header"
-            id="dashboard-header"
-        >
 
-            <div
-                className="header-left"
-                id="header-left"
-            >
+        <header className="dashboard-header"id="dashboard-header" >
 
-                <div
-                    className="info-left-header"
-                    id="info-left-header"
-                >
+            <div className="header-left" id="header-left" >
 
-                    <span id="info-home">
-                        ⌂
-                    </span>
+                <div className="info-left-header"id="info-left-header" >
 
-                    <span id="info-separator">
-                        /
-                    </span>
+                    <span id="info-home"> ⌂ </span>
 
-                    <span id="info-current">
-                        {pageTitle}
-                    </span>
+                    <span id="info-separator">/ </span>
 
-                </div>
+                    <span id="info-current"> {pageTitle}  </span>
+                 </div>
 
-
-                <h1 id="dashboard-title">
-                    {pageTitle}
-                </h1>
-
+                    <h1 id="dashboard-title">{pageTitle} </h1>
             </div>
-
 
             <button
                 id="menu-button"
                 className="menu-button"
                 type="button"
                 aria-label="Toggle sidebar"
-                aria-expanded="false"
                 onClick={onMenuClick}
-            >
-                ☰
-            </button>
+            > ☰ </button>
 
 
-            <div
-                className="header-right"
-                id="header-right"
-            >
-
-                <div
-                    className="search-box"
-                    id="search-box"
-                >
-
-                    <span id="search-icon">
-                        🔎
-                    </span>
-
+            <div className="header-right"id="header-right" >
+                <div  className="search-box"id="search-box" >
+                    <span id="search-icon">🔎 </span>
 
                     <input
                         type="search"
@@ -117,24 +70,14 @@ function Header({
                         aria-label="Search navigation"
                         value={searchText}
                         onChange={(event) =>
-                            onSearchChange(
-                                event.target.value
-                            )
-                        }
-                    />
-
+                            onSearchChange(event.target.value)} />
                 </div>
-
 
                 <button
                     id="logout-button"
                     className="header-button"
                     type="button"
-                    onClick={handleLogout}
-                >
-                    👤 Log out
-                </button>
-
+                    onClick={handleLogout}> 👤 Log out </button>
 
                 <button
                     id="header-settings-button"
@@ -164,4 +107,3 @@ function Header({
 }
 
 
-export default Header;

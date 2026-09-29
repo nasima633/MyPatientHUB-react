@@ -1,15 +1,7 @@
 import "./sidebar.css";
 
-
-function Sidebar({
-    isOpen,
-    searchText,
-    currentPage,
-    onNavClick,
-    onNavigate
-}) {
-
-
+ export default function Sidebar({isOpen,searchText, currentPage,onNavClick, onNavigate}) {
+    // we take tis part in Arrays becuase it stores many data .
     const navItems = [
         {
             id: "nav-dashboard",
@@ -75,34 +67,20 @@ function Sidebar({
 
 
     const filteredItems = navItems.filter(
-        (item) =>
-            item.label
-                .toLowerCase()
-                .includes(
-                    searchText.toLowerCase()
-                )
-    );
+
+        (item) => item.label.toLowerCase() .includes( searchText.toLowerCase()));
 
 
-    function handleNavigation(
-        event,
-        page
-    ) {
+    function handleNavigation( event,page ) {
 
         event.preventDefault();
 
-        if (
-            page === "dashboard" ||
-            page === "find-doctor" ||
-            page === "find-clinic"
-        ) {
-
+        if ( page === "dashboard" || page === "find-doctor" || page === "find-clinic") {
+             
             onNavigate(page);
+         }
 
-        }
-
-        onNavClick();
-
+         onNavClick();
     }
 
 
@@ -124,32 +102,20 @@ function Sidebar({
             aria-label="Main navigation"
         >
 
-            <div
-                id="sidebar-logo"
-                className="sidebar-logo"
-            >
-
-                <div
-                    id="logo-mark"
-                    className="logo-mark"
-                >
+            <div id="sidebar-logo"className="sidebar-logo" >
+                <div id="logo-mark" className="logo-mark">
                     M<span>HUB</span>
                 </div>
 
-
-                <span id="brand-name">
-                    MyPatientHUB
-                </span>
-
+                <span id="brand-name">MyPatientHUB</span>
             </div>
 
-
+            {/* this part is taken from AI  */}
             {filteredItems.map((item) => (
 
-                <a
-                    key={item.id}
-                    href={`#${item.page}`}
-                    id={item.id}
+                <a key={item.id}
+                   href={`#${item.page}`}
+                   id={item.id}
                     className={`nav-item ${
                         currentPage === item.page
                             ? "active"
@@ -164,17 +130,10 @@ function Sidebar({
                     }
                 >
 
-                    <span className="nav-icon">
-                        {item.icon}
-                    </span>
+                   <span className="nav-icon"> {item.icon} </span>
 
-
-                    <span className="nav-label">
-                        {item.label}
-                    </span>
-
-                </a>
-
+                    <span className="nav-label">{item.label}</span>
+                 </a>
             ))}
 
 
@@ -183,14 +142,11 @@ function Sidebar({
                 className="help-button"
                 type="button"
                 aria-label="Help"
-                onClick={handleHelp}
-            >
-                ?
+                onClick={handleHelp} >?
             </button>
-
         </nav>
-    );
+);
 }
 
 
-export default Sidebar;
+t 
